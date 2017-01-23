@@ -39,8 +39,6 @@ import android.util.Log;
 /*import com.android.internal.os.IKillSwitchService;*/
 import com.cyanogenmod.setupwizard.SetupWizardApp;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import cyanogenmod.providers.CMSettings;
 
 import static android.content.res.ThemeConfig.SYSTEM_DEFAULT;
@@ -50,7 +48,6 @@ public class SetupWizardUtils {
     private static final String TAG = SetupWizardUtils.class.getSimpleName();
 
     public static final String GOOGLE_SETUPWIZARD_PACKAGE = "com.google.android.setupwizard";
-    private static final String MODMOD_PACKAGE = "com.cyanogen.ambient.core";
 
     private SetupWizardUtils(){}
 
@@ -196,19 +193,6 @@ public class SetupWizardUtils {
 
     public static boolean isOwner() {
         return Binder.getCallingUserHandle().isOwner();
-    }
-
-    public static boolean hasGMS(Context context) {
-        return GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) !=
-                ConnectionResult.SERVICE_MISSING;
-    }
-
-    /**
-     * The assumption here is that if ambient core is present, we have MODs.
-     * In the future we will link against the SDK and use the util there.
-     */
-    public static boolean canHasModMOD(Context context) {
-        return isPackageInstalled(context, MODMOD_PACKAGE);
     }
 
     public static boolean accountExists(Context context, String accountType) {
