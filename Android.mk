@@ -31,3 +31,5 @@ LOCAL_AAPT_FLAGS += --extra-packages com.google.android.gms
 include frameworks/opt/setupwizard/library/common.mk
 
 include $(BUILD_PACKAGE)
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
