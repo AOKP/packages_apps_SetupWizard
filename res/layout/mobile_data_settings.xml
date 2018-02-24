@@ -17,7 +17,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@color/primary">
 
     <include layout="@layout/header" />
 
@@ -26,7 +27,8 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:indeterminateOnly="true"
         android:layout_width="match_parent"
-        android:layout_height="8dp" />
+        android:layout_height="8dp"
+        android:visibility="gone"/>
 
     <FrameLayout android:id="@+id/page"
                  android:layout_width="match_parent"
@@ -42,8 +44,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/PageContent"
-                android:visibility="gone">
+                style="@style/PageContent">
 
                 <TextView
                     android:id="@+id/mobile_data_summary"
@@ -101,5 +102,8 @@
             </LinearLayout>
         </ScrollView>
     </FrameLayout>
+    <fragment android:name="com.android.setupwizard.navigationbar.SetupWizardNavBar"
+        android:id="@+id/navigation_bar"
+        style="@style/setup_wizard_navbar_style" />
 </LinearLayout>
 
